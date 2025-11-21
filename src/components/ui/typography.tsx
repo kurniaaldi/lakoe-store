@@ -31,7 +31,7 @@ const VARIANT_CLASSES: Record<Variant, string> = {
   p: "text-base md:text-lg leading-relaxed",
   small: "text-sm leading-relaxed",
   muted: "text-base leading-relaxed",
-  blockquote: "border-l-4 border-slate-200 pl-4 italic",
+  blockquote: "border-slate-200 italic",
   caption: "text-xs",
 };
 
@@ -47,8 +47,8 @@ export default function Typography<T extends ElementType = "p">({
       ? variant === "h1"
         ? "h1"
         : variant === "h2"
-        ? "h2"
-        : "h3"
+          ? "h2"
+          : "h3"
       : "p")) as ElementType;
 
   const base = VARIANT_CLASSES[variant] ?? VARIANT_CLASSES.p;

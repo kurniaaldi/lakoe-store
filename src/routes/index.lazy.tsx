@@ -1,4 +1,4 @@
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { createLazyFileRoute, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 
 import ServingIcon from "@/assets/icons/ServingIcon";
@@ -26,6 +26,7 @@ const dummyData = [
   },
 ];
 function Index() {
+  const router = useRouter();
   const [isActiveCard, setIsActiveCard] = useState<string | number>("");
 
   return (
@@ -83,7 +84,11 @@ function Index() {
               Lihat Menu
             </Button>
           </div>
-          <Button size={"xl"} className="w-full flex justify-between">
+          <Button
+            onClick={() => router.navigate({ to: "/order" })}
+            size={"xl"}
+            className="w-full flex justify-between"
+          >
             <Typography variant="small" className="font-semibold">
               Rp10.000
             </Typography>
