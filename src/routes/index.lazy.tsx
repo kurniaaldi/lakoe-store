@@ -1,14 +1,32 @@
+import { createLazyFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Button from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import Counter from "@/components/ui/counter";
 import Typography from "@/components/ui/typography";
-import { createLazyFileRoute } from "@tanstack/react-router";
+import { cn } from "@/lib/utils";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
 });
+const dummyData = [
+  {
+    id: 1,
+    title: "Susu Jahe",
+    price: "  Rp10.000",
+  },
+  {
+    id: 2,
 
+    title: "Susu Jahe",
+    price: "  Rp10.000",
+  },
+];
 function Index() {
+  const [isActiveCard, setIsActiveCard] = useState<string | number>("");
+
   return (
     <div className="flex h-100vh min-w-full w-full p-4 relative pt-28">
       <div className="fixed w-full top-0 left-0 p-4">
@@ -25,21 +43,37 @@ function Index() {
       <div className="flex flex-col gap-4 w-full">
         <Typography variant="lead">Minuman</Typography>
         <div className="grid grid-cols-2 gap-4">
-          <Card className="shadow-none p-0">
-            <img
-              src="/images/beverage.png"
-              alt="beverage.png"
-              className="w-full h-40 rounded-2xl"
-            />
-            <CardContent className="px-3 py-2">
-              <Typography variant="small" className="font-semibold">
-                Susu Jahe
-              </Typography>
-              <Typography variant="small" className="text-neutral-dark-light">
-                Rp10.000
-              </Typography>
-            </CardContent>
-          </Card>
+          {dummyData.map((item) => (
+            <Card
+              onClick={() => setIsActiveCard(item.id)}
+              className={cn(
+                "shadow-none p-0",
+                isActiveCard === item.id &&
+                  "bg-highlight-lighest border-highlight-medium",
+              )}
+            >
+              <div className="w-full h-40 rounded-2xl relative">
+                <img
+                  src="/images/beverage.png"
+                  alt="beverage.png"
+                  className="w-full h-40 rounded-2xl"
+                />
+                {isActiveCard === item.id && (
+                  <div className="w-28 border-highlight-medium border rounded-lg overflow-hidden flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white">
+                    <Counter />
+                  </div>
+                )}
+              </div>
+              <CardContent className="px-3 py-2">
+                <Typography variant="small" className="font-semibold">
+                  {item.title}
+                </Typography>
+                <Typography variant="small" className="text-neutral-dark-light">
+                  {item.price}
+                </Typography>
+              </CardContent>
+            </Card>
+          ))}
         </div>
         <div className="fixed w-full bottom-0 left-0 p-4 bg-neutral-light-lighest border-y">
           <Button size={"xl"} className="w-full flex justify-between">
