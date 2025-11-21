@@ -1,10 +1,11 @@
 import AddIcon from "@/assets/icons/AddIcon";
-import { TrashIcon } from "lucide-react";
+import TrashIcon from "@/assets/icons/TrashIcon";
+
 import {
   InputGroup,
-  InputGroupInput,
   InputGroupAddon,
   InputGroupButton,
+  InputGroupInput,
 } from "./input-group";
 
 const Counter = () => {

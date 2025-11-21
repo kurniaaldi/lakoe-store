@@ -1,6 +1,7 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
+import ServingIcon from "@/assets/icons/ServingIcon";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Button from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -76,6 +77,12 @@ function Index() {
           ))}
         </div>
         <div className="fixed w-full bottom-0 left-0 p-4 bg-neutral-light-lighest border-y">
+          <div className="fixed w-full bottom-24 left-0 flex items-center justify-center">
+            <Button className="rounded-full! bg-success-dark">
+              <ServingIcon />
+              Lihat Menu
+            </Button>
+          </div>
           <Button size={"xl"} className="w-full flex justify-between">
             <Typography variant="small" className="font-semibold">
               Rp10.000

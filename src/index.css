@@ -52,6 +52,22 @@
   --neutral-dark-medium: #494a50;
   --neutral-dark-light: #71727a;
   --neutral-dark-lighest: #8f9098;
+
+  --info-dark: #296582;
+  --info-medium: #3a96c0;
+  --info-light: #e7f0f4;
+
+  --success-dark: #1f8426;
+  --success-medium: #9ee49d;
+  --success-light: #dffbde;
+
+  --warning-dark: #e8b939;
+  --warning-medium: #ffdc7c;
+  --warning-light: #fff8e4;
+
+  --error-dark: #ed3241;
+  --error-medium: #ff616d;
+  --error-light: #ffe2e5;
 }
 
 .dark {
@@ -101,6 +117,22 @@
   --neutral-dark-medium: #494a50;
   --neutral-dark-light: #71727a;
   --neutral-dark-lighest: #8f9098;
+
+  --info-dark: #296582;
+  --info-medium: #3a96c0;
+  --info-light: #e7f0f4;
+
+  --success-dark: #1f8426;
+  --success-medium: #9ee49d;
+  --success-light: #dffbde;
+
+  --warning-dark: #e8b939;
+  --warning-medium: #ffdc7c;
+  --warning-light: #fff8e4;
+
+  --error-dark: #ed3241;
+  --error-medium: #ff616d;
+  --error-light: #ffe2e5;
 }
 
 a {
@@ -133,7 +165,6 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
   border: 1px solid transparent;
   font-size: 1em;
   font-weight: 500;
@@ -143,10 +174,6 @@ button {
 }
 button:hover {
   border-color: var(--highlight-darkest);
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
 @media (prefers-color-scheme: light) {
@@ -215,6 +242,22 @@ button:focus-visible {
   --color-neutral-dark-medium: var(--neutral-dark-medium);
   --color-neutral-dark-light: var(--neutral-dark-light);
   --color-neutral-dark-lighest: var(--neutral-dark-lighest);
+
+  --color-info-dark: var(--info-dark);
+  --color-info-medium: var(--info-medium);
+  --color-info-light: var(--info-light);
+
+  --color-success-dark: var(--success-dark);
+  --color-success-medium: var(--success-medium);
+  --color-success-light: var(--success-light);
+
+  --color-warning-dark: var(--warning-dark);
+  --color-warning-medium: var(--warning-medium);
+  --color-warning-light: var(--warning-light);
+
+  --color-error-dark: var(--error-dark);
+  --color-error-medium: var(--error-medium);
+  --color-error-light: var(--error-light);
 }
 
 @layer base {
