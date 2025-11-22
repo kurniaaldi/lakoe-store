@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 
 import Button from "@/components/ui/button";
@@ -16,6 +16,7 @@ export const Route = createFileRoute("/order")({
 
 function OrderIndexComponent() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const router = useRouter();
   return (
     <div className="flex h-100vh min-w-full w-full p-4 relative pt-28">
       <TableInfo />
@@ -48,7 +49,14 @@ function OrderIndexComponent() {
       </div>
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         <DrawerContent className="px-5">
-          <DrawerCashier onClose={() => setIsOpen(false)} />
+          <DrawerCashier
+            onClose={() =>
+              router.navigate({
+                to: "/order/$invoiceId",
+                params: { invoiceId: "2132" },
+              })
+            }
+          />
         </DrawerContent>
       </Drawer>
     </div>

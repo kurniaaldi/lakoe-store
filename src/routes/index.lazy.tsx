@@ -59,6 +59,7 @@ function Index() {
         <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4">
           {dummyData.map((item) => (
             <Card
+              key={item.id}
               onClick={() => setIsActiveCard(item.id)}
               className={cn(
                 "shadow-none p-0",
