@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
 import Button from "@/components/ui/button";
+import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import Typography from "@/components/ui/typography";
 
 import BillDetails from "./components/BillDetails";
 import CardMenu from "./components/CardMenu";
+import DrawerCashier from "./components/DrawerCashier";
 import TableInfo from "./components/TableInfo";
 
 export const Route = createFileRoute("/order")({
@@ -12,6 +15,7 @@ export const Route = createFileRoute("/order")({
 });
 
 function OrderIndexComponent() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <div className="flex h-100vh min-w-full w-full p-4 relative pt-28">
       <TableInfo />
@@ -30,13 +34,23 @@ function OrderIndexComponent() {
         <BillDetails />
       </div>
       <div className="fixed w-full justify-center items-center gap-4 flex bottom-0 left-0 p-4 bg-neutral-light-lighest border-y">
-        <Button className="w-[45%]" size={"xl"} variant={"outline"}>
+        <Button
+          onClick={() => setIsOpen(true)}
+          className="w-[45%]"
+          size={"xl"}
+          variant={"outline"}
+        >
           Bayar Nanti
         </Button>
-        <Button className="w-[45%]" size={"xl"}>
+        <Button onClick={() => setIsOpen(true)} className="w-[45%]" size={"xl"}>
           Bayar Sekarang
         </Button>
       </div>
+      <Drawer open={isOpen} onOpenChange={setIsOpen}>
+        <DrawerContent className="px-5">
+          <DrawerCashier onClose={() => setIsOpen(false)} />
+        </DrawerContent>
+      </Drawer>
     </div>
   );
 }
