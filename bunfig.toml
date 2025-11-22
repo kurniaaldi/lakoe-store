@@ -1,0 +1,2 @@
+[plugins]
+vite = ["@tanstack/router-vite-plugin"]

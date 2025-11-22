@@ -21,10 +21,10 @@ export const Route = createFileRoute("/order/$invoiceId")({
 });
 
 function OrderDetailIndexComponent() {
-  const invoice = Route.useLoaderData();
+  const invoiceId = Route.useParams();
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  console.log(invoice);
+  console.log(invoiceId);
 
   return (
     <div className="flex h-100vh min-w-full w-full p-4 relative pt-28">

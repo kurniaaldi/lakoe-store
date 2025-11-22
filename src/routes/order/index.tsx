@@ -10,7 +10,7 @@ import CardMenu from "./components/CardMenu";
 import DrawerCashier from "./components/DrawerCashier";
 import TableInfo from "./components/TableInfo";
 
-export const Route = createFileRoute("/order")({
+export const Route = createFileRoute("/order/")({
   component: OrderIndexComponent,
 });
 
