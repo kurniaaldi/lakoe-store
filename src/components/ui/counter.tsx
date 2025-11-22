@@ -10,7 +10,7 @@ import {
 
 const Counter = () => {
   return (
-    <InputGroup>
+    <InputGroup className="border-primary">
       <InputGroupInput value={0} className="text-center" />
       <InputGroupAddon align="inline-start">
         <InputGroupButton variant={"secondary"} title="Copy" size="icon-sm">

@@ -24,6 +24,18 @@ const dummyData = [
     title: "Susu Jahe",
     price: "  Rp10.000",
   },
+  {
+    id: 3,
+
+    title: "Susu Jahe",
+    price: "  Rp10.000",
+  },
+  {
+    id: 4,
+
+    title: "Susu Jahe",
+    price: "  Rp10.000",
+  },
 ];
 function Index() {
   const router = useRouter();
@@ -44,7 +56,7 @@ function Index() {
       </div>
       <div className="flex flex-col gap-4 w-full">
         <Typography variant="lead">Minuman</Typography>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4">
           {dummyData.map((item) => (
             <Card
               onClick={() => setIsActiveCard(item.id)}

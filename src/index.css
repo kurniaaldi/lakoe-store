@@ -164,14 +164,6 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border: 1px solid transparent;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
 button:hover {
   border-color: var(--highlight-darkest);
 }
