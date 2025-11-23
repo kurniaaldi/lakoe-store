@@ -1,14 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 
+import TableInfo from "@/components/modules/detail-order/TableInfo";
+import BillDetails from "@/components/modules/order/BillDetails";
+import CardMenu from "@/components/modules/order/CardMenu";
 import Button from "@/components/ui/button";
-import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import Typography from "@/components/ui/typography";
-
-import BillDetails from "./components/BillDetails";
-import CardMenu from "./components/CardMenu";
-import DrawerCashier from "./components/DrawerCashier";
-import TableInfo from "./components/TableInfo";
 
 export const Route = createFileRoute("/order/$invoiceId")({
   params: {
@@ -21,43 +17,29 @@ export const Route = createFileRoute("/order/$invoiceId")({
 });
 
 function OrderDetailIndexComponent() {
-  const invoiceId = Route.useParams();
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  console.log(invoiceId);
+  const params = Route.useParams();
 
   return (
-    <div className="flex h-100vh min-w-full w-full p-4 relative pt-28">
-      <TableInfo />
+    <div className="flex h-100vh min-w-full w-full p-4 relative">
       <div className="flex flex-col gap-4 w-full">
+        <TableInfo orderId={params?.invoiceId} status="waiting" />
         <div className="flex items-center justify-between w-full">
           <Typography variant="lead">Pesanan</Typography>
-          <Button variant="link">Tambah Pesanan</Button>
         </div>
         <div className="space-y-2">
-          <CardMenu />
-          <CardMenu />
+          <CardMenu showCounter={false} />
+          <CardMenu showCounter={false} />
         </div>
         <div className="flex items-center justify-between w-full">
           <Typography variant="lead">Ringkasan tagihan</Typography>
         </div>
-        <BillDetails />
+        <BillDetails withReturn />
       </div>
       <div className="fixed w-full justify-center items-center flex bottom-0 left-0 p-4 bg-neutral-light-lighest border-y">
-        <Button
-          onClick={() => setIsOpen(true)}
-          className="w-full"
-          size={"xl"}
-          variant={"outline"}
-        >
+        <Button className="w-full" size={"xl"} variant={"outline"}>
           Bagikan Struk (Bill)
         </Button>
       </div>
-      <Drawer open={isOpen} onOpenChange={setIsOpen}>
-        <DrawerContent className="px-5">
-          <DrawerCashier onClose={() => setIsOpen(false)} />
-        </DrawerContent>
-      </Drawer>
     </div>
   );
 }

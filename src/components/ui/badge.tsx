@@ -1,6 +1,6 @@
-import * as React from "react";
-
+/* eslint-disable react-refresh/only-export-components */
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -13,6 +13,12 @@ const badgeVariants = cva(
           "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
         secondary:
           "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        success:
+          "border-transparent bg-success-dark text-white hover:bg-secondary/80",
+        warning:
+          "border-transparent bg-warning-dark text-secondary-foreground hover:bg-secondary/80",
+        solid:
+          "border-transparent bg-neutral-dark-darkest text-white hover:bg-secondary/80",
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
         outline: "text-foreground",
@@ -23,6 +29,15 @@ const badgeVariants = cva(
     },
   },
 );
+
+export type BadgeVariant =
+  | "solid"
+  | "warning"
+  | "success"
+  | "default"
+  | "secondary"
+  | "destructive"
+  | "outline";
 
 export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,

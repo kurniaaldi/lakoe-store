@@ -5,10 +5,10 @@ import Button from "@/components/ui/button";
 import { Drawer, DrawerContent } from "@/components/ui/drawer";
 import Typography from "@/components/ui/typography";
 
-import BillDetails from "./components/BillDetails";
-import CardMenu from "./components/CardMenu";
-import DrawerCashier from "./components/DrawerCashier";
-import TableInfo from "./components/TableInfo";
+import BillDetails from "../../components/modules/order/BillDetails";
+import CardMenu from "../../components/modules/order/CardMenu";
+import DrawerCashier from "../../components/modules/order/DrawerCashier";
+import TableInfo from "../../components/modules/order/TableInfo";
 
 export const Route = createFileRoute("/order/")({
   component: OrderIndexComponent,

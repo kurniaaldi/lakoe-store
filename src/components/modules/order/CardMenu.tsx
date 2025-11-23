@@ -4,9 +4,13 @@ import Button from "@/components/ui/button";
 import Counter from "@/components/ui/counter";
 import Typography from "@/components/ui/typography";
 
-const CardMenu = () => {
+interface ICardMenu {
+  showCounter?: boolean;
+}
+
+const CardMenu = ({ showCounter = true }: ICardMenu) => {
   return (
-    <div className="flex justify-between border-b">
+    <div className="flex justify-between border-b pb-2">
       <div className="flex gap-4">
         <img
           src="/images/beverage.png"
@@ -21,18 +25,22 @@ const CardMenu = () => {
           <Typography variant="caption" className="text-neutral-dark-light">
             "Gulanya sedikit aja"
           </Typography>
-          <Button
-            variant="link"
-            size="icon-sm"
-            className="p-0 justify-start text-sm!"
-          >
-            Ubah
-          </Button>
+          {showCounter && (
+            <Button
+              variant="link"
+              size="icon-sm"
+              className="p-0 justify-start text-sm!"
+            >
+              Ubah
+            </Button>
+          )}
         </div>
       </div>
-      <div className="w-28">
-        <Counter />
-      </div>
+      {showCounter && (
+        <div className="w-28">
+          <Counter />
+        </div>
+      )}
     </div>
   );
 };
