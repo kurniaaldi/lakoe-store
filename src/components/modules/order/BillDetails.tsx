@@ -5,9 +5,13 @@ import Typography from "@/components/ui/typography";
 
 interface IBillDetails {
   withReturn?: boolean;
+  isPaidOff?: boolean;
 }
 
-const BillDetails = ({ withReturn = false }: IBillDetails) => {
+const BillDetails = ({
+  withReturn = false,
+  isPaidOff = false,
+}: IBillDetails) => {
   return (
     <div>
       <div className="bg-neutral-light-light rounded-xl p-4 space-y-2">
@@ -57,9 +61,11 @@ const BillDetails = ({ withReturn = false }: IBillDetails) => {
       </div>
       <div className="h-px border-b-2 border-dashed mx-4" />
       <div className="bg-neutral-light-light rounded-xl p-4 space-y-2 relative">
-        <div className="absolute right-16 -top-5">
-          <StampIcon />
-        </div>
+        {isPaidOff && (
+          <div className="absolute right-16 -top-5">
+            <StampIcon />
+          </div>
+        )}
         <div className="grid grid-cols-2">
           <Typography
             variant="muted"

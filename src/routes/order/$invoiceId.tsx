@@ -33,7 +33,7 @@ function OrderDetailIndexComponent() {
         <div className="flex items-center justify-between w-full">
           <Typography variant="lead">Ringkasan tagihan</Typography>
         </div>
-        <BillDetails withReturn />
+        <BillDetails withReturn isPaidOff />
       </div>
       <div className="fixed w-full justify-center items-center flex bottom-0 left-0 p-4 bg-neutral-light-lighest border-y">
         <Button className="w-full" size={"xl"} variant={"outline"}>
